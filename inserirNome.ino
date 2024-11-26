@@ -10,8 +10,8 @@ bool longoA = false, longoB = false;
 
 void setup() {
   lcd.begin(16, 2);
-  pinMode(5, INPUT_PULLUP); // Botão A
-  pinMode(6, INPUT_PULLUP); // Botão B
+  pinMode(5, INPUT_PULLUP);
+  pinMode(6, INPUT_PULLUP); 
   lcd.print("Introd. Nome:");
   lcd.setCursor(0, 1);
   lcd.print(letras[indiceLetra]);
@@ -29,14 +29,14 @@ void loop() {
       posicao = 0;
       nome[0] = '\0';
       lcd.setCursor(0, 1);
-      lcd.print("                "); // Limpa a linha
+      lcd.print("                "); 
       lcd.setCursor(0, 1);
-      lcd.print(letras[indiceLetra]); // Reinicia exibição
+      lcd.print(letras[indiceLetra]);
       longoA = true;
     }
   } else {
     if (InicioA != 0 && !longoA && tempoAtual - InicioA <= 2000) {
-      indiceLetra = (indiceLetra + 1) % (sizeof(letras) - 1); // Navega letras
+      indiceLetra = (indiceLetra + 1) % (sizeof(letras) - 1);
       lcd.setCursor(posicao, 1);
       lcd.print(letras[indiceLetra]);
     }
@@ -71,7 +71,7 @@ void loop() {
       char letraSelecionada = letras[indiceLetra];
       if (letraSelecionada == '<' && posicao > 0) {
         posicao--;
-        nome[posicao] = '\0'; // Remove último caractere
+        nome[posicao] = '\0'; 
         lcd.setCursor(posicao, 1);
         lcd.print(" ");
         lcd.setCursor(posicao, 1);
